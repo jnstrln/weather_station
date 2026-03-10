@@ -48,7 +48,7 @@ async function loadWeather() {
         🌡 Température : ${w.temperature} °C <br>
         💧 Humidité : ${w.humidity} % <br>
         🌬 Pression : ${w.pressure} hPa <br>
-        💡 Lumière : ${w.light} lx <br>
+        💡 Luminosité : ${w.light} lx <br>
         🕒 Dernière mesure : ${dateFormatted}
         `
 
@@ -60,7 +60,7 @@ async function getHistory() {
 
         .from("weather_station")
         .select("*")
-        .order("created_at", { ascending: true })
+        .order("created_at", { ascending: false })
         .limit(100)
 
     if (error) {
