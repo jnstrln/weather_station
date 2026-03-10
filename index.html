@@ -1,26 +1,50 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Station météo Winkel</title>
 
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- Supabase JS -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
-  
-  <!-- Script principal -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+
   <script src="script.js" defer></script>
 </head>
+
 <body>
+
   <header>
     <h1>Station météo Winkel</h1>
   </header>
 
   <main>
-    <div id="data">Chargement...</div>
+
+    <section class="card">
+      <h2>Dernière mesure</h2>
+      <div id="data">Chargement...</div>
+    </section>
+
+    <section class="card">
+
+      <h2>Historique</h2>
+
+      <select id="variableSelect">
+        <option value="temperature">Température</option>
+        <option value="humidity">Humidité</option>
+        <option value="pressure">Pression</option>
+        <option value="light">Lumière</option>
+      </select>
+
+      <canvas id="weatherChart"></canvas>
+
+    </section>
+
   </main>
+
 </body>
+
 </html>
