@@ -16,12 +16,23 @@ async function loadWeather() {
 
         const w = data[0];
 
+        const date = new Date(w.created_at);
+
+        const formattedDate = date.toLocaleDateString("fr-FR", {
+            weekday: "long",
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+            hour: "2-digit",
+            minute: "2-digit"
+        });
+
         document.getElementById("data").innerHTML = `
             🌡 Température : ${w.temperature} °C <br>
             💧 Humidité : ${w.humidity} % <br>
             🌬 Pression : ${w.pressure} hPa <br>
             💡 Lumière : ${w.light} lx <br>
-            🕒 Dernière mesure : ${w.created_at}
+            🕒 Dernière mesure : ${formattedDate}
         `;
     } catch (err) {
         document.getElementById("data").innerHTML = "Erreur : " + err.message;
@@ -31,5 +42,5 @@ async function loadWeather() {
 // Chargement initial
 loadWeather();
 
-// Rafraîchissement toutes les 10 secondes
-setInterval(loadWeather, 10000);
+// Rafraîchissement toutes les 60 secondes
+setInterval(loadWeather, 60000);
