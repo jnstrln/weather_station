@@ -62,7 +62,6 @@ async function getHistory() {
         .select("*")
         .order("created_at", { ascending: false })
         .limit(120)
-        .order("created_at", { ascending: true })
 
     if (error) {
 
@@ -71,7 +70,7 @@ async function getHistory() {
 
     }
 
-    return data
+    return data.reverse()
 
 }
 
@@ -82,7 +81,12 @@ function prepareData(data, variable) {
 
     data.forEach(row => {
 
-        labels.push(new Date(row.created_at).toLocaleTimeString("fr-FR"))
+    labels.push(
+        new Date(row.created_at).toLocaleTimeString("fr-FR", {
+            hour: "2-digit",
+            minute: "2-digit"
+        })
+    )
         values.push(row[variable])
 
     })
