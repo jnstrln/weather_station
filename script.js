@@ -24,7 +24,8 @@ async function loadWeather() {
             month: "long",
             year: "numeric",
             hour: "2-digit",
-            minute: "2-digit"
+            minute: "2-digit",
+            timeZone: "Europe/Paris"
         });
 
         document.getElementById("data").innerHTML = `
