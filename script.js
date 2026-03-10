@@ -45,12 +45,12 @@ async function loadWeather() {
     document.getElementById("data").innerHTML =
 
         `
-🌡 Température : ${w.temperature} °C <br>
-💧 Humidité : ${w.humidity} % <br>
-🌬 Pression : ${w.pressure} hPa <br>
-💡 Lumière : ${w.light} lx <br>
-🕒 Dernière mesure : ${dateFormatted}
-`
+        🌡 Température : ${w.temperature} °C <br>
+        💧 Humidité : ${w.humidity} % <br>
+        🌬 Pression : ${w.pressure} hPa <br>
+        💡 Lumière : ${w.light} lx <br>
+        🕒 Dernière mesure : ${dateFormatted}
+        `
 
 }
 
@@ -149,7 +149,6 @@ async function updateGraph() {
 }
 
 document
-
     .getElementById("variableSelect")
     .addEventListener("change", updateGraph)
 
