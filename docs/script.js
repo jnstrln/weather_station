@@ -34,10 +34,21 @@ async function loadWeather() {
     }
 
     const w = data[0];
+
+    // altitude de Winkel en mètres
+    const altitude = 566;
+
+    // pression mesurée en hPa
+    const pressureMeasured = w.pressure;
+
+    // calcul de la pression corrigée au niveau de la mer
+    const seaLevelPressure = pressureMeasured / Math.pow(1 - altitude / 44330.0, 5.255);
+
     document.getElementById("data").innerHTML =
         `🌡 Température : ${w.temperature} °C <br>
          💧 Humidité : ${w.humidity} % <br>
-         🌬 Pression : ${w.pressure} hPa <br>
+         🌬 Pression réelle : ${pressureMeasured.toFixed(2)} hPa <br>
+         🌬 Pression corrigée : ${seaLevelPressure.toFixed(2)} hPa <br>
          💡 Luminosité : ${w.light} lx <br>
          🕒 Dernière mesure : ${formatDate(w.created_at)}`;
 }

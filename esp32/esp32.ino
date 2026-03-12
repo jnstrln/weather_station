@@ -155,7 +155,7 @@ void setup(){
     lightMeter.begin();
 
     Serial.println("-- Default Test --");
-    delayTime = 60000;
+    delayTime = 59000;
 
     Serial.println();
 }
